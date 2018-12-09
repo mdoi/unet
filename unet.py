@@ -68,11 +68,11 @@ class UNet(object):
         dec3 = concatenate([dec3, enc7], axis=self.CONCATENATE_AXIS)
 
         # (16 x 16 x 8N)
-        dec4 = self._add_decoding_layer(filter_count, False, dec3)
+        dec4 = self._add_decoding_layer(filter_count, True, dec3)
         dec4 = concatenate([dec4, enc6], axis=self.CONCATENATE_AXIS)
 
         # (32 x 32 x 8N)
-        dec5 = self._add_decoding_layer(filter_count, False, dec4)
+        dec5 = self._add_decoding_layer(filter_count, True, dec4)
         dec5 = concatenate([dec5, enc5], axis=self.CONCATENATE_AXIS)
 
         # (64 x 64 x 8N)
